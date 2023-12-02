@@ -104,61 +104,71 @@ changeImage();
 // Set an interval to change images
 setInterval(changeImage, intervalTime);
 
-
-
-
-
-  // Initialize EmailJS with your Public Key
-  emailjs.init('UEXwGJPwfmtyk0Adv');
-
+// Initialize EmailJS with your Public Key
+emailjs.init("UEXwGJPwfmtyk0Adv");
+// Wait for the reCAPTCHA script to load
+window.onload = function () {
   // Handle form submission
-  document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the default form submission
+  document
+    .getElementById("contact-form")
+    .addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent the default form submission
 
-    // Execute reCAPTCHA and handle its response
-    grecaptcha.execute('6LcMRSQpAAAAAPqUDYb8EAUYaEFNF8cq867yogit', { action: 'submit' }).then(function(token) {
+      // Execute reCAPTCHA and handle its response
+      grecaptcha
+        .execute("6LcMRSQpAAAAAPqUDYb8EAUYaEFNF8cq867yogit", {
+          action: "submit",
+        })
+        .then(function (token) {
+          // Add the reCAPTCHA response to the form data
+          document.getElementById("g-recaptcha-response").value = token;
 
-      // Add the reCAPTCHA response to the form data
-    document.getElementById('g-recaptcha-response').value = token;
-    
-    // Get form data
-    const formData = {
-      fullname: document.getElementById('fullname').value,
-      email: document.getElementById('email').value,
-      phone: document.getElementById('phone').value,
-      subject: document.getElementById('subject').value,
-      message: document.getElementById('message').value,
-      'g-recaptcha-response': token // Include reCAPTCHA response in formData
-    };
+          // Get form data
+          const formData = {
+            fullname: document.getElementById("fullname").value,
+            email: document.getElementById("email").value,
+            phone: document.getElementById("phone").value,
+            subject: document.getElementById("subject").value,
+            message: document.getElementById("message").value,
+            "g-recaptcha-response": token, // Include reCAPTCHA response in formData
+          };
 
-    // Send email using EmailJS
-    emailjs.send('service_okwoja4', 'template_69gyamz', formData)
-      .then(function(response) {
-        console.log('Email sent!', response.status, response.text);
-        // Display a success message to the user
-        displayMessage('Email sent successfully!', 'success');
-      })
-      .catch(function(error) {
-        console.error('Email failed to send:', error);
-        // Display an error message to the user
-        displayMessage('Email failed to send. Please try again later.', 'error');
-      });
-  }).catch(function(error) {
-    console.error('reCAPTCHA execution error:', error);
-    // Display an error message to the user for reCAPTCHA execution error
-    displayMessage('Error verifying reCAPTCHA. Please try again.', 'error');
-  });
-});
-
+          // Send email using EmailJS
+          emailjs
+            .send("service_okwoja4", "template_69gyamz", formData)
+            .then(function (response) {
+              console.log("Email sent!", response.status, response.text);
+              // Display a success message to the user
+              displayMessage("Email sent successfully!", "success");
+            })
+            .catch(function (error) {
+              console.error("Email failed to send:", error);
+              // Display an error message to the user
+              displayMessage(
+                "Email failed to send. Please try again later.",
+                "error"
+              );
+            });
+        })
+        .catch(function (error) {
+          console.error("reCAPTCHA execution error:", error);
+          // Display an error message to the user for reCAPTCHA execution error
+          displayMessage(
+            "Error verifying reCAPTCHA. Please try again.",
+            "error"
+          );
+        });
+    });
+};
 // Function to display a message to the user
 function displayMessage(message, type) {
-  const messageElement = document.createElement('div');
-  messageElement.classList.add('message', type);
+  const messageElement = document.createElement("div");
+  messageElement.classList.add("message", type);
   messageElement.textContent = message;
 
   // Display the message for a few seconds (e.g., 5 seconds)
   document.body.appendChild(messageElement);
-  setTimeout(function() {
+  setTimeout(function () {
     messageElement.remove();
   }, 5000); // Remove the message after 5 seconds (adjust as needed)
 }
