@@ -118,6 +118,9 @@ setInterval(changeImage, intervalTime);
     // Execute reCAPTCHA and handle its response
     grecaptcha.execute('6LcMRSQpAAAAAPqUDYb8EAUYaEFNF8cq867yogit', { action: 'submit' }).then(function(token) {
 
+      // Add the reCAPTCHA response to the form data
+    document.getElementById('g-recaptcha-response').value = token;
+    
     // Get form data
     const formData = {
       fullname: document.getElementById('fullname').value,
