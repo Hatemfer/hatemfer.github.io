@@ -116,7 +116,7 @@ window.onload = function () {
 
       // Execute reCAPTCHA and handle its response
       grecaptcha
-        .execute("6LcMRSQpAAAAAPqUDYb8EAUYaEFNF8cq867yogit", {
+        .execute("6LcOTSQpAAAAAFgI40zTFvV4G6i4AXOvDsCsVgZ9", {
           action: "submit",
         })
         .then(function (token) {
