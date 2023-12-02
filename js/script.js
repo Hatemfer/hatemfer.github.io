@@ -105,20 +105,18 @@ changeImage();
 setInterval(changeImage, intervalTime);
 
 
+
+
+
   // Initialize EmailJS with your Public Key
   emailjs.init('UEXwGJPwfmtyk0Adv');
 
   // Handle form submission
   document.getElementById('contact-form').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent the default form submission
-  
-    // Get reCAPTCHA response
-  const recaptchaResponse = grecaptcha.getResponse();
 
-  if (!recaptchaResponse) {
-    alert('Please complete the reCAPTCHA verification.');
-    return; // Stop form submission if reCAPTCHA is not completed
-  }
+    // Execute reCAPTCHA and handle its response
+    grecaptcha.execute('6LcMRSQpAAAAAPqUDYb8EAUYaEFNF8cq867yogit', { action: 'submit' }).then(function(token) {
 
     // Get form data
     const formData = {
@@ -127,17 +125,37 @@ setInterval(changeImage, intervalTime);
       phone: document.getElementById('phone').value,
       subject: document.getElementById('subject').value,
       message: document.getElementById('message').value,
-      'g-recaptcha-response': recaptchaResponse // Include reCAPTCHA response in formData
+      'g-recaptcha-response': token // Include reCAPTCHA response in formData
     };
 
     // Send email using EmailJS
     emailjs.send('service_okwoja4', 'template_69gyamz', formData)
       .then(function(response) {
         console.log('Email sent!', response.status, response.text);
-        // Add your success handling code here (e.g., display a success message to the user)
-      }, function(error) {
+        // Display a success message to the user
+        displayMessage('Email sent successfully!', 'success');
+      })
+      .catch(function(error) {
         console.error('Email failed to send:', error);
-        // Add your error handling code here (e.g., display an error message to the user)
+        // Display an error message to the user
+        displayMessage('Email failed to send. Please try again later.', 'error');
       });
+  }).catch(function(error) {
+    console.error('reCAPTCHA execution error:', error);
+    // Display an error message to the user for reCAPTCHA execution error
+    displayMessage('Error verifying reCAPTCHA. Please try again.', 'error');
   });
-  
+});
+
+// Function to display a message to the user
+function displayMessage(message, type) {
+  const messageElement = document.createElement('div');
+  messageElement.classList.add('message', type);
+  messageElement.textContent = message;
+
+  // Display the message for a few seconds (e.g., 5 seconds)
+  document.body.appendChild(messageElement);
+  setTimeout(function() {
+    messageElement.remove();
+  }, 5000); // Remove the message after 5 seconds (adjust as needed)
+}
