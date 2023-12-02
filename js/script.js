@@ -9,7 +9,7 @@ menuIcon.nclick = () => {
 let sections = document.querySelectorAll("section");
 let navLinks = document.querySelectorAll("header nav a");
 
-window.onscroll = () => {
+window.addEventListener("scroll", () => {
   sections.forEach((sec) => {
     let top = window.scrollY;
     let offset = window.offsetTop - 150;
@@ -32,7 +32,7 @@ window.onscroll = () => {
 
   menuIcon.classList.remove("bx-x");
   navbar.classList.remove("bx-x");
-};
+});
 
 ScrollReveal({
   distance: "80px",
@@ -60,9 +60,9 @@ const typed = new Typed(".multiple-text", {
 let mybutton = document.getElementById("myBtn");
 
 // When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function () {
+window.addEventListener("scroll", () => {
   scrollFunction();
-};
+});
 
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -159,16 +159,17 @@ window.onload = function () {
           );
         });
     });
-};
-// Function to display a message to the user
-function displayMessage(message, type) {
-  const messageElement = document.createElement("div");
-  messageElement.classList.add("message", type);
-  messageElement.textContent = message;
 
-  // Display the message for a few seconds (e.g., 5 seconds)
-  document.body.appendChild(messageElement);
-  setTimeout(function () {
-    messageElement.remove();
-  }, 5000); // Remove the message after 5 seconds (adjust as needed)
-}
+  // Function to display a message to the user
+  function displayMessage(message, type) {
+    const messageElement = document.createElement("div");
+    messageElement.classList.add("message", type);
+    messageElement.textContent = message;
+
+    // Display the message for a few seconds (e.g., 5 seconds)
+    document.body.appendChild(messageElement);
+    setTimeout(function () {
+      messageElement.remove();
+    }, 5000); // Remove the message after 5 seconds (adjust as needed)
+  }
+};
