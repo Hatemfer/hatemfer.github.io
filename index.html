@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Resume</title>
+  <link rel="stylesheet" href="path/to/boxicons.css">
+    <link rel="icon" href="images/home.png" type="image/x-icon">
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  </head>
+  <body>  
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="bx bx-up-arrow-alt"></i></button>
+
+    <header class="header">
+      <a href="#" class="logo">Portfolio</a>
+      <i class="bx bx-menu" id="menu-icon"></i>
+      <nav class="navbar">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="home" id="home">
+      <div class="home-content">
+        <h3>Hello, It's Me</h3>
+        <h1>Hatem Ferjeni</h1>
+        <h3>And I'm a <span class="multiple-text"></span></h3>
+        <p>
+          Full Stack Developer with a passion for building
+          innovative and user-friendly web applications. I have a solid
+          understanding of both  <span>front-end technologies</span> such asNextjs
+          (React), as well as <span>back-end technologies</span> such as Nodejs
+          and Nestjs. I have proficient in JavaScript and has experience
+          with a variety of <span>databases</span>, including MongoDB and MySQL.
+          I have a quick learner and am always eager to expand my skill
+          set. I have a strong work ethic and am dedicated to delivering
+          high-quality code and a great user experience.
+        </p>
+        <div class="social-media">
+          <a href="https://www.facebook.com/ferjeni.hatem" target="_blank"
+            ><i class="bx bxl-facebook"></i
+          ></a>
+          <a href="https://twitter.com/hatem_ferjeni" target="_blank"
+            ><i class="bx bxl-twitter"></i
+          ></a>
+          <a href="https://www.instagram.com/ferjenihatem/" target="_blank"
+            ><i class="bx bxl-instagram-alt"></i
+          ></a>
+          <a href="https://www.linkedin.com/in/hatem-ferjeni-b47895226" target="_blank"
+            ><i class="bx bxl-linkedin"></i
+          ></a>
+        </div>
+        <a href="#" class="btn">Download CV</a>
+      </div>
+      <div class="home-img">
+        <img  src="images/home.png" alt="" />
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="about-img">
+        <img src="images/about.png" alt="" />
+      </div>
+      <div class="about-content">
+        <h2 class="heading">About <span> Me </span></h2>
+        <h3>Fullstack developer</h3>
+        <p>
+          Full Stack Developer with a passion for building
+          innovative and user-friendly web applications. I have a solid
+          understanding of both  <span>front-end technologies</span> such asNextjs
+          (React), as well as <span>back-end technologies</span> such as Nodejs
+          and Nestjs. I have proficient in JavaScript and has experience
+          with a variety of <span>databases</span>, including MongoDB and MySQL.
+          I have a quick learner and am always eager to expand my skill
+          set. I have a strong work ethic and am dedicated to delivering
+          high-quality code and a great user experience.
+        </p>
+        <a href="#" class="btn">Read more</a>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <h2 class="heading">Our <span>Services</span></h2>
+      <div class="services-container">
+        <div class="services-box">
+          <i class="bx bx-code-alt"></i>
+          <h3>Web Developement</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+            mollitia, molestiae quas vel sint commodi repudiandae consequuntur
+            voluptatum laborum numquam blanditiis harum quisquam,
+          </p>
+          <a href="#" class="btn">Read More</a>
+        </div>
+        <div class="services-box">
+          <i class="bx bxs-paint"></i>
+          <h3>Graphic Design</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+            mollitia, molestiae quas vel sint commodi repudiandae consequuntur
+            voluptatum laborum numquam blanditiis harum quisquam.
+          </p>
+          <a href="#" class="btn">Read More</a>
+        </div>
+
+        <div class="services-box">
+          <i class="bx bx-bar-chart-alt"></i>
+          <h3>Digital Marketing</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+            mollitia, molestiae quas vel sint commodi repudiandae consequuntur
+            voluptatum laborum numquam blanditiis harum quisquam.
+          </p>
+          <a href="#" class="btn">Read More</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+      <h2 class="heading">Latest <span>Project</span></h2>
+      <div class="portfolio-container">
+        <div class="portfolio-box">
+          <img src="images/seniorenplatzfinder.png" alt="" id="portfolioImage_Intern" />
+          <div class="portfolio-layer">
+            <h4>Seniorenplatzfinder</h4>
+            <p>
+              Online platform for Senior Housing
+            </p>
+            <a href="#"><i class="bx bx-link-external"></i></a>
+          </div>
+        </div>
+
+        <div class="portfolio-box">
+          <img src="images/ATDEPA.png" alt="" id="portfolioImage_ATDEPA" />
+          <div class="portfolio-layer">
+            <h4>ATDEPA</h4>
+            <p>
+              website dedicated to promoting and supporting artisanal fishing practices in Tunisia. 
+              It offers resources, information, and services related to traditional and small-scale fishing in the region.            </p>
+            <a href="#"><i class="bx bx-link-external"></i></a>
+          </div>
+        </div>
+        <div class="portfolio-box">
+          <img src="images/InternApp1.png" alt="" id="portfolioImage_Intern" />
+            <div class="portfolio-layer">
+              <h4>Internal Web Application</h4>
+              <p>
+                An internal web application facilitating member management, profit tracking, time off, and time sheets.
+              </p>
+              <a href="#"><i class="bx bx-link-external"></i></a>
+            </div>
+          </div>
+
+        <div class="portfolio-box">
+          <img src="images/HAICOP.png" alt="" id="portfolioImage_HAICOP" />
+          <div class="portfolio-layer">
+            <h4>HAICOP</h4>
+            <p>
+              Web application thats allows Haicop emplyees to register public procurement.
+            </p>
+            <a href="#"><i class="bx bx-link-external"></i></a>
+          </div>
+        </div>
+
+        <div class="portfolio-box">
+          <img src="images/Restaurant1.png" alt="" id="portfolioImage_Intern" />
+          <div class="portfolio-layer">
+            <h4>The Resto</h4>
+            <p>
+              Restaurant website provides comprehensive information and services, enabling users 
+              to access restaurant details, make online table reservations, and conveniently settle bills 
+              through secure online payment.
+            </p>
+            <a href="#"><i class="bx bx-link-external"></i></a>
+          </div>
+        </div>
+        <div class="portfolio-box">
+          <img src="images/menu.png" alt="" />
+          <div class="portfolio-layer">
+            <h4>Restaurant Menu</h4>
+            <p>
+              Restaurant menu offering an array of flavorful dishes for a delightful dining experience.
+            </p>
+            <a href="#"><i class="bx bx-link-external"></i></a>
+          </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2 class="heading">Contact <span>Me!</span></h2>
+      <form id="contact-form">
+        <div class="input-box">
+          <input type="text" id="fullname" placeholder="Full Name"  required/>
+          <input type="email" id="email" placeholder="Email Address"  required/>
+        </div>
+        <div class="input-box">
+          <input type="number" id="phone"  placeholder="Mobile Number" />
+          <input type="text" id="subject" placeholder="Email Subject"  required/>
+        </div>
+        <textarea
+          id="message"
+          cols="30"
+          rows="10"
+          placeholder="Your Message" required
+        ></textarea>
+         <!-- Add the reCAPTCHA div here -->
+    <div class="g-recaptcha" data-sitekey="6Lc-NiQpAAAAABwrXWK7cxLDuDDhmjL4bpMOBYIP"></div>
+        <input type="submit" value="Send Message" class="btn" />
+      </form>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-text">
+        <p>Copyright &copy; 2023 by HatemFer | All Rights Resorved.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
