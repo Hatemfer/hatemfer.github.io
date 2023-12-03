@@ -250,6 +250,10 @@ span {
   display: flex;
 }
 
+.portfolio-box {
+  height: 24rem;
+}
+
 .portfolio-box img {
   width: 100%;
   transition: 0.5s ease;
@@ -390,9 +394,15 @@ box-shadow: 0 0 1rem var(--main-color);
   html {
     font-size: 55%;
   }
+  .portfolio-box {
+    height: 30rem;
+  }
 }
 
 @media (max-width: 991px) {
+  .portfolio-box {
+    height: 25rem;
+  }
   .header {
     padding: 2rem 3%;
   }
