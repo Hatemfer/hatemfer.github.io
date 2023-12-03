@@ -118,7 +118,7 @@ span {
 
 .home-content p {
   font-size: 1.6rem;
-  font-family:  Tahoma, sans-serif;
+  font-family: Tahoma, sans-serif;
 }
 
 .social-media a {
@@ -241,7 +241,7 @@ span {
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
   gap: 2.5rem;
-  }
+}
 .portfolio-container .portfolio-box {
   position: relative;
   border-radius: 2rem;
@@ -386,16 +386,33 @@ span {
 }
 
 #myBtn:hover {
-box-shadow: 0 0 1rem var(--main-color);
+  box-shadow: 0 0 1rem var(--main-color);
 }
 
+@media (max-width: 1600px) {
+  html {
+    font-size: 70%;
+  }
+  .portfolio-box {
+    height: 23rem;
+  }
+}
+
+@media (max-width: 1400px) {
+  html {
+    font-size: 65%;
+  }
+  .portfolio-box {
+    height: 25rem;
+  }
+}
 
 @media (max-width: 1200px) {
   html {
     font-size: 55%;
   }
   .portfolio-box {
-    height: 30rem;
+    height: 25rem;
   }
 }
 
@@ -524,4 +541,3 @@ box-shadow: 0 0 1rem var(--main-color);
     margin-top: 2rem;
   }
 }
-
