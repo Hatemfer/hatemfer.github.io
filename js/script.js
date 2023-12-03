@@ -7,7 +7,7 @@ menuIcon.addEventListener("click", () => {
 
 // Add this if you want to close the menu when a link is clicked
 let navLinks = document.querySelectorAll(".navbar a");
-navLinks.forEach(link => {
+navLinks.forEach((link) => {
   link.addEventListener("click", () => {
     navbar.classList.remove("active");
   });
@@ -82,32 +82,6 @@ function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
-
-const imageUrls = [
-  "images/InternApp1.png",
-  "images/InternApp2.jpeg",
-  "images/InternApp3.png",
-  "images/InternApp4.jpeg",
-  "images/InternApp5.jpeg",
-  "images/InternApp6.jpeg",
-  "images/InternApp7.jpeg",
-  "images/InternApp8.png",
-];
-
-const intervalTime = 1500; // 1.5 seconds
-let currentImageIndex = 0;
-
-function changeImage() {
-  document.getElementById("portfolioImage_Intern").src =
-    imageUrls[currentImageIndex];
-  currentImageIndex = (currentImageIndex + 1) % imageUrls.length;
-}
-
-// Initially set the first image
-changeImage();
-
-// Set an interval to change images
-setInterval(changeImage, intervalTime);
 
 // Initialize EmailJS with your Public Key
 emailjs.init("UEXwGJPwfmtyk0Adv");
