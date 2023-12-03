@@ -1,13 +1,18 @@
 let menuIcon = document.querySelector("#menu-icon");
 let navbar = document.querySelector(".navbar");
 
-menuIcon.nclick = () => {
-  menuIcon.classList.toggle("bx-x");
-  navbar.classList.toggle("bx-x");
-};
+menuIcon.addEventListener("click", () => {
+  navbar.classList.toggle("active");
+});
 
+// Add this if you want to close the menu when a link is clicked
+let navLinks = document.querySelectorAll(".navbar a");
+navLinks.forEach(link => {
+  link.addEventListener("click", () => {
+    navbar.classList.remove("active");
+  });
+});
 let sections = document.querySelectorAll("section");
-let navLinks = document.querySelectorAll("header nav a");
 
 window.addEventListener("scroll", () => {
   sections.forEach((sec) => {
