@@ -83,56 +83,6 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
 }
 
-// Initialize EmailJS with your Public Key
-emailjs.init("UEXwGJPwfmtyk0Adv");
-
-// Function to display a toast message
-function displayToast(message, type) {
-  const toastElement = document.createElement("div");
-  toastElement.classList.add("toast", type);
-  toastElement.textContent = message;
-
-  // Display the toast notification
-  document.body.appendChild(toastElement);
-
-  setTimeout(function () {
-    toastElement.remove();
-  }, 3000); // Remove the toast after 3 seconds (adjust as needed)
-}
-
-// Wait for the DOM content to load
-document.addEventListener("DOMContentLoaded", function () {
-  // Handle form submission
-  document
-    .getElementById("contact-form")
-    .addEventListener("submit", function (event) {
-      event.preventDefault(); // Prevent the default form submission
-
-      // Get form data
-      const formData = {
-        fullname: document.getElementById("fullname").value,
-        email: document.getElementById("email").value,
-        message: document.getElementById("message").value,
-      };
-
-      // Send email using EmailJS
-      emailjs
-        .send("service_okwoja4", "template_69gyamz", formData)
-        .then(function (response) {
-          // Display a success message to the user
-          displayToast("Email sent successfully!", "success");
-        })
-        .catch(function (error) {
-          console.error("Email failed to send:", error);
-          // Display an error message to the user
-          displayToast(
-            "Email failed to send. Please try again later.",
-            "error"
-          );
-        });
-    });
-});
-
 // Array of different citations
 const citations = [
   "Seamlessly Uniting Frontend Artistry with Backend Precision.",
@@ -153,3 +103,70 @@ function changeCitation() {
 changeCitation();
 
 setInterval(changeCitation, 3000); // Change citation every 3 seconds
+
+// Initialize EmailJS with your Public Key
+emailjs.init("UEXwGJPwfmtyk0Adv");
+
+// Function to display a toast message
+function displayToast(message, type) {
+  const toastContainer = document.getElementById("toast-container");
+
+  const toastElement = document.createElement("div");
+  toastElement.classList.add("toast", type);
+
+  const icon = document.createElement("balise");
+  icon.classList.add("icon");
+  icon.innerHTML =
+    type === "success"
+      ? '<i class="fas fa-check-circle"></i>'
+      : '<i class="fas fa-times-circle"></i>';
+  toastElement.appendChild(icon);
+
+  const messageSpan = document.createElement("balise");
+  messageSpan.textContent = message;
+  toastElement.appendChild(messageSpan);
+
+  toastContainer.appendChild(toastElement);
+
+  setTimeout(function () {
+    toastElement.classList.add("show");
+    setTimeout(function () {
+      toastElement.classList.remove("show");
+      setTimeout(function () {
+        toastElement.remove();
+      }, 500);
+    }, 2500);
+  }, 100);
+}
+
+// Wait for the DOM content to load
+document.addEventListener("DOMContentLoaded", function () {
+  // Handle form submission
+  document
+    .getElementById("contact-form")
+    .addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent the default form submission
+
+      // Get form data
+      const formData = {
+        fullname: document.getElementById("fullname").value,
+        email: document.getElementById("email").value,
+        message: document.getElementById("message").value,
+      };
+      // Send email using EmailJS
+      emailjs
+        .send("service_okwoja4", "template_69gyamz", formData)
+        .then(function (response) {
+          // Display a success message to the user
+          displayToast("Email sent successfully!", "success");
+        })
+        .catch(function (error) {
+          console.error("Email failed to send:", error);
+          // Display an error message to the user
+          displayToast(
+            "Email failed to send. Please try again later.",
+            "error"
+          );
+        });
+    });
+});
