@@ -85,55 +85,33 @@ function topFunction() {
 
 // Initialize EmailJS with your Public Key
 emailjs.init("UEXwGJPwfmtyk0Adv");
-// Wait for the reCAPTCHA script to load
-window.onload = function () {
+// Wait for the DOM content to load
+document.addEventListener("DOMContentLoaded", function () {
   // Handle form submission
   document
     .getElementById("contact-form")
     .addEventListener("submit", function (event) {
       event.preventDefault(); // Prevent the default form submission
 
-      // Execute reCAPTCHA and handle its response
-      grecaptcha
-        .execute("6LcOTSQpAAAAAFgI40zTFvV4G6i4AXOvDsCsVgZ9", {
-          action: "submit",
-        })
-        .then(function (token) {
-          // Add the reCAPTCHA response to the form data
-          document.getElementById("g-recaptcha-response").value = token;
+      // Get form data
+      const formData = {
+        fullname: document.getElementById("fullname").value,
+        email: document.getElementById("email").value,
+        message: document.getElementById("message").value,
+      };
 
-          // Get form data
-          const formData = {
-            fullname: document.getElementById("fullname").value,
-            email: document.getElementById("email").value,
-            phone: document.getElementById("phone").value,
-            subject: document.getElementById("subject").value,
-            message: document.getElementById("message").value,
-            "g-recaptcha-response": token, // Include reCAPTCHA response in formData
-          };
-
-          // Send email using EmailJS
-          emailjs
-            .send("service_okwoja4", "template_69gyamz", formData)
-            .then(function (response) {
-              console.log("Email sent!", response.status, response.text);
-              // Display a success message to the user
-              displayMessage("Email sent successfully!", "success");
-            })
-            .catch(function (error) {
-              console.error("Email failed to send:", error);
-              // Display an error message to the user
-              displayMessage(
-                "Email failed to send. Please try again later.",
-                "error"
-              );
-            });
+      // Send email using EmailJS
+      emailjs
+        .send("service_okwoja4", "template_69gyamz", formData)
+        .then(function (response) {
+          // Display a success message to the user
+          displayMessage("Email sent successfully!", "success");
         })
         .catch(function (error) {
-          console.error("reCAPTCHA execution error:", error);
-          // Display an error message to the user for reCAPTCHA execution error
+          console.error("Email failed to send:", error);
+          // Display an error message to the user
           displayMessage(
-            "Error verifying reCAPTCHA. Please try again.",
+            "Email failed to send. Please try again later.",
             "error"
           );
         });
@@ -149,6 +127,27 @@ window.onload = function () {
     document.body.appendChild(messageElement);
     setTimeout(function () {
       messageElement.remove();
-    }, 5000); // Remove the message after 5 seconds (adjust as needed)
+    }, 5000); // Remove the message after 5 seconds
   }
-};
+});
+
+// Array of different citations
+const citations = [
+  "Seamlessly Uniting Frontend Artistry with Backend Precision.",
+  "Crafting Code, Fusing Innovation, Delivering Excellence.",
+  "Elevating User Experiences through Full-Stack Wizardry.",
+  "Coding the Future: Full-Stack Mastery in Motion.",
+  "Architecting Dreams with Full-Stack Expertise.",
+];
+
+// Function to update the citation in the footer
+function changeCitation() {
+  const citationElement = document.getElementById("citation");
+  const randomIndex = Math.floor(Math.random() * citations.length);
+  citationElement.textContent = citations[randomIndex];
+}
+
+// Call the function to change citation on page load
+changeCitation();
+
+setInterval(changeCitation, 3000); // Change citation every 3 seconds
