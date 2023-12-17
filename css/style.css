@@ -251,6 +251,7 @@ span {
 }
 
 .portfolio-box {
+  cursor: pointer;
   height: 24rem;
 }
 
