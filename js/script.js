@@ -85,6 +85,21 @@ function topFunction() {
 
 // Initialize EmailJS with your Public Key
 emailjs.init("UEXwGJPwfmtyk0Adv");
+
+// Function to display a toast message
+function displayToast(message, type) {
+  const toastElement = document.createElement("div");
+  toastElement.classList.add("toast", type);
+  toastElement.textContent = message;
+
+  // Display the toast notification
+  document.body.appendChild(toastElement);
+
+  setTimeout(function () {
+    toastElement.remove();
+  }, 3000); // Remove the toast after 3 seconds (adjust as needed)
+}
+
 // Wait for the DOM content to load
 document.addEventListener("DOMContentLoaded", function () {
   // Handle form submission
@@ -105,30 +120,17 @@ document.addEventListener("DOMContentLoaded", function () {
         .send("service_okwoja4", "template_69gyamz", formData)
         .then(function (response) {
           // Display a success message to the user
-          displayMessage("Email sent successfully!", "success");
+          displayToast("Email sent successfully!", "success");
         })
         .catch(function (error) {
           console.error("Email failed to send:", error);
           // Display an error message to the user
-          displayMessage(
+          displayToast(
             "Email failed to send. Please try again later.",
             "error"
           );
         });
     });
-
-  // Function to display a message to the user
-  function displayMessage(message, type) {
-    const messageElement = document.createElement("div");
-    messageElement.classList.add("message", type);
-    messageElement.textContent = message;
-
-    // Display the message for a few seconds (e.g., 5 seconds)
-    document.body.appendChild(messageElement);
-    setTimeout(function () {
-      messageElement.remove();
-    }, 5000); // Remove the message after 5 seconds
-  }
 });
 
 // Array of different citations
