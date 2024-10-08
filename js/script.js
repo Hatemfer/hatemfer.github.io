@@ -170,3 +170,28 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+// Array of image paths
+const images = [
+  "images/pisa1.png",
+  "images/pisa11.png",
+  "images/pisa22.png",
+  "images/pisa33.png",
+];
+
+// Get the image element by ID
+const portfolioImage = document.getElementById("portfolioImage_Menu");
+
+// Set up variables for cycling through images
+let currentIndex = 0;
+const intervalTime = 1000; // 1 second interval
+
+// Function to change the image
+function cycleImages() {
+  // Update to the next image in the array
+  currentIndex = (currentIndex + 1) % images.length;
+  portfolioImage.src = images[currentIndex];
+}
+
+// Start the image cycling every second
+setInterval(cycleImages, intervalTime);
