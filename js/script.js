@@ -173,10 +173,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Array of image paths
 const images = [
-  "images/pisa1.png",
-  "images/pisa11.png",
-  "images/pisa22.png",
-  "images/pisa33.png",
+  "images/pisa1.PNG",
+  "images/pisa11.PNG",
+  "images/pisa22.PNG",
+  "images/pisa33.PNG",
 ];
 
 // Get the image element by ID
